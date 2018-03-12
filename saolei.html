@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>扫雷</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 50px;
+        }
+        #saolei{
+            vertical-align: top;
+        }
+        ul{
+            font-size: 12px;
+            margin-top: 50px;
+            color: #999;
+        }
+        .gezi{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: solid 1px #ccc;
+            background: #000;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+        .gezi.lei,.example.lei{
+            background:red!important;
+        }
+        .gezi.open{
+            background:#fff;
+            color: #000;
+        }
+        .gezi.maybeLei,.example.maybeLei{
+            background:green;
+        }
+        .gezi.question,.example.question{
+            background:yellow;
+        }
+
+        .example{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <select id="changeSaoLei">
+            <option value="10" selected>初级</option>
+            <option value="40">中级</option>
+            <option value="99">高级</option>
+        </select>
+        <div id="saolei"></div>
+        <ul>
+            <li><span class="example maybeLei"></span>:标记为雷</li>
+            <li><span class="example question"></span>:标记怀疑为雷</li>
+            <li><span class="example lei"></span>:雷</li>
+            <li>左键点开格子</li>
+            <li>右键判断是否为雷</li>
+            <li>判断为雷的格子：点击右键一次，将该格子标注为怀疑对象，右键两次为取消标记为雷</li>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="saolei.js"></script>
+</body>
+</html>
+
+
