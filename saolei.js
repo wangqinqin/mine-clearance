@@ -103,8 +103,8 @@ CreateSaolei.prototype._setLei = function (row,col) {
     }
     var LeiArray = JSON.parse(JSON.stringify(dataArray));
 
-    var i = 0;
-    while(i<leiNum){
+    var j = 0;
+    while(j<leiNum){
         var rowIndex = Math.floor((Math.random()*this.rowSize-1)+1);
         var colIndex = Math.floor((Math.random()*this.colSize-1)+1);
         if(LeiArray[rowIndex][colIndex] != 'BOOM'){
@@ -119,7 +119,7 @@ CreateSaolei.prototype._setLei = function (row,col) {
                 (row < this.rowSize && col < this.colSize && rowIndex == row+1 && colIndex == col+1)){}else{
                 LeiArray[rowIndex][colIndex] = 'BOOM';
                 this.leiRightArray.push(rowIndex*this.colSize+colIndex);
-                i++;
+                j++;
             }
         }
     }
