@@ -82,6 +82,7 @@ CreateSaolei.prototype._bindShowEvent = function (){
                         _that._nothingShowMore(row,col);
                     }else{
                         _thisDom.addClass('open').html(arrayNum[row][col]);
+                        arrayNum[row][col] = -1;
                         ++_that.rightLeave;
                     }
 
@@ -179,11 +180,12 @@ CreateSaolei.prototype._open = function (row,col){
         if (_thisValue != 0 && _thisValue != 'BOOM') {
             if(!(_thisDom.hasClass('maybeLei') || _thisDom.hasClass('question') ||  _thisDom.hasClass('lei') )){
                 _thisDom.addClass('open').html(_thisValue);
-                arrayNum[row][col] = -1;
                 ++this.rightLeave;
+                arrayNum[row][col] = -1;
             }
         } else if (_thisValue == 0) {
             _thisDom.addClass('open');
+            ++this.rightLeave;
             arrayNum[row][col] = -1;
             this._nothingShowMore(row,col)
         }
@@ -191,7 +193,6 @@ CreateSaolei.prototype._open = function (row,col){
 };
 CreateSaolei.prototype._nothingShowMore = function (row,col){
     this._open(row,col);
-    ++this.rightLeave;
     //左上
     if (col > 0 && row> 0) {
         this._open(row-1,col-1);
